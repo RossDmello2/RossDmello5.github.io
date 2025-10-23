@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ross Dmello — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="logo" href="#home">Ross Dmello</a>
+      <button id="navToggle" class="nav-toggle" aria-label="Open Menu" aria-expanded="false">☰</button>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="Ross%20Dmello_ress.pdf" target="_blank" rel="noopener">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="home" class="section hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Hello!</p>
+          <h1 class="headline">I'm <span class="accent">Ross Dmello</span></h1>
+          <p class="subhead">Final‑Year Computer Engineering Student</p>
+          <p class="lede">Data enthusiast turning numbers into narratives. I build data‑driven products & tell stories with insights.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#contact">Get in Touch</a>
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn ghost" href="Ross%20Dmello_ress.pdf" target="_blank" rel="noopener">Resume</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="images/rd.jpeg" alt="Portrait of Ross Dmello" />
+        </div>
+      </div>
+      <a href="#about" class="scroll-down" aria-label="Scroll to About">⌄</a>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title">About</h2>
+          <p>I have developed expertise in data science & analytics through my Computer Engineering program and hands‑on projects. I’m comfortable with SQL, Python, Machine Learning, NLP and modern data‑viz tools. I enjoy building useful, reliable products and explaining the “why” behind the numbers.</p>
+        </div>
+        <ul class="about-list">
+          <li><span>Profile:</span> Data Science & Analytics</li>
+          <li><span>Domain:</span> Data Analysis, Machine Learning & AI</li>
+          <li><span>Languages:</span> SQL, Python, R, C++, HTML/CSS, ReactJS</li>
+          <li><span>Tools:</span> AWS, Power BI, Looker Studio, R Studio, Excel, Docker</li>
+          <li><span>Other:</span> Git, Jupyter, ETL, Statistical Analysis</li>
+          <li><span>Interests:</span> Travelling, Photography, Teaching</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Skills (professional flat bars) -->
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-intro">Core technical skills developed via coursework and projects.</p>
+        <div class="skills-grid">
+          <div class="skill">
+            <div class="skill-row">
+              <span class="skill-name">SQL</span>
+              <span class="skill-val">95%</span>
+            </div>
+            <div class="bar"><div class="fill" style="width:95%"></div></div>
+          </div>
+          <div class="skill">
+            <div class="skill-row">
+              <span class="skill-name">Python</span>
+              <span class="skill-val">85%</span>
+            </div>
+            <div class="bar"><div class="fill" style="width:85%"></div></div>
+          </div>
+          <div class="skill">
+            <div class="skill-row">
+              <span class="skill-name">Data Visualisation</span>
+              <span class="skill-val">90%</span>
+            </div>
+            <div class="bar"><div class="fill" style="width:90%"></div></div>
+          </div>
+          <div class="skill">
+            <div class="skill-row">
+              <span class="skill-name">Machine Learning</span>
+              <span class="skill-val">80%</span>
+            </div>
+            <div class="bar"><div class="fill" style="width:80%"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>AI‑Driven Medical Diagnosis Prediction</h3>
+            <p>Full‑stack web app (React + Flask) deployed on AWS EC2. Decision Tree and Random Forest models; ~82% accuracy; sub‑2s response for 200+ users.</p>
+            <ul>
+              <li>Reusable ML pipeline with automated preprocessing & hyper‑param tuning</li>
+              <li>REST API for predictions</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Automated Threat Intelligence Analytics</h3>
+            <p>Python ETL for 50+ sources; AWS S3 data lake + Athena. K‑means & DBSCAN to cluster threats and find outliers; structured reporting.</p>
+            <ul>
+              <li>Daily processing for 100k+ indicators</li>
+              <li>Analyst‑friendly reports and trends</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Social Media Election Sentiment</h3>
+            <p>VADER‑based sentiment classifier with scikit‑learn; simple Flask UI to score text in real time.</p>
+            <ul>
+              <li>Tokenisation & text cleaning pipeline</li>
+              <li>Lightweight deployment</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education (as requested) -->
+    <section id="education" class="section">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="edu-list">
+          <article class="edu">
+            <h3>Bachelor of Computer Engineering</h3>
+            <p class="edu-inst">FR. CONCEICAO RODRIGUES COLLEGE OF ENGINEERING</p>
+            <p class="edu-meta">2022–2026 · Grade: Currently Pursuing</p>
+          </article>
+          <article class="edu">
+            <h3>Higher Secondary Education</h3>
+            <p class="edu-inst">DIVINE PROVIDENCE JUNIOR COLLEGE</p>
+            <p class="edu-meta">2020–2022 · Score: 74.67%</p>
+          </article>
+          <article class="edu">
+            <h3>Senior Secondary Education</h3>
+            <p class="edu-inst">DON BOSCO HIGH SCHOOL</p>
+            <p class="edu-meta">2019–2020 · Score: 85.80%</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <p class="contact-label">Address</p>
+            <p>Mumbai, India</p>
+          </div>
+          <div class="contact-card">
+            <p class="contact-label">Phone</p>
+            <p><a href="tel:+917045197220">+91 7045197220</a></p>
+          </div>
+          <div class="contact-card">
+            <p class="contact-label">Email</p>
+            <p><a href="mailto:rossdmello896@gmail.com">rossdmello896@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="social-row">
+          <a class="social" href="https://github.com/RossDmello2" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+          <a class="social" href="https://www.linkedin.com/in/ross-dmello-4a9035330/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Ross Dmello. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
