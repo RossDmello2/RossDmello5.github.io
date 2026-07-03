@@ -1,0 +1,276 @@
+/* ============================================================
+   ROSS DMELLO — BLUEPRINT COMPONENTS
+   New modules introduced in the control-room redesign:
+   hero HUD frame, portrait module, animated brand sigil,
+   flow packets, reserved project slot.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1 · BRAND SIGIL — self-orbiting monogram in the nav.
+   ------------------------------------------------------------ */
+.brand-sigil {
+	width: 34px;
+	height: 34px;
+	display: block;
+	overflow: visible;
+}
+
+.brand-sigil .sigil-ring {
+	fill: none;
+	stroke: var(--accent);
+	stroke-width: 1.6;
+	stroke-dasharray: 5 7;
+	stroke-linecap: round;
+	transform-origin: 50% 50%;
+	animation: sigil-spin 16s linear infinite;
+}
+
+.brand-sigil .sigil-text {
+	fill: var(--ink);
+	font-family: var(--font-mono);
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+}
+
+.brand-sigil .sigil-dot {
+	fill: var(--accent);
+	transform-origin: 50% 50%;
+	animation: sigil-spin 16s linear infinite;
+}
+
+.nav-brand:hover .sigil-ring,
+.nav-brand:hover .sigil-dot {
+	animation-duration: 2.4s;
+}
+
+@keyframes sigil-spin {
+	to { transform: rotate(360deg); }
+}
+
+/* ------------------------------------------------------------
+   2 · HERO HUD — registration frame + telemetry readout.
+   ------------------------------------------------------------ */
+.hero::after {
+	content: "";
+	position: absolute;
+	inset: 108px clamp(18px, 3.4vw, 44px) 30px;
+	pointer-events: none;
+	z-index: 1;
+	opacity: 0.7;
+	background:
+		linear-gradient(rgba(var(--accent-rgb), 0.8) 0 0) left 0 top 0 / 20px 1px,
+		linear-gradient(rgba(var(--accent-rgb), 0.8) 0 0) left 0 top 0 / 1px 20px,
+		linear-gradient(rgba(var(--accent-rgb), 0.8) 0 0) right 0 top 0 / 20px 1px,
+		linear-gradient(rgba(var(--accent-rgb), 0.8) 0 0) right 0 top 0 / 1px 20px,
+		linear-gradient(rgba(var(--accent-rgb), 0.8) 0 0) left 0 bottom 0 / 20px 1px,
+		linear-gradient(rgba(var(--accent-rgb), 0.8) 0 0) left 0 bottom 0 / 1px 20px,
+		linear-gradient(rgba(var(--accent-rgb), 0.8) 0 0) right 0 bottom 0 / 20px 1px,
+		linear-gradient(rgba(var(--accent-rgb), 0.8) 0 0) right 0 bottom 0 / 1px 20px;
+	background-repeat: no-repeat;
+}
+
+.hero-hud-readout {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 28px;
+	margin-bottom: 18px;
+	font-family: var(--font-mono);
+	font-size: 10.5px;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--ink-3);
+}
+
+.hero-hud-readout b {
+	font-weight: 500;
+	color: var(--accent);
+}
+
+/* ------------------------------------------------------------
+   3 · PORTRAIT MODULE — the subject, framed like evidence.
+   ------------------------------------------------------------ */
+.portrait-frame {
+	position: relative;
+	width: min(280px, 78%);
+	margin: 6px auto var(--space-6);
+	z-index: 1;
+}
+
+.portrait-frame img {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	object-position: 50% 18%;
+	display: block;
+	border-radius: var(--radius-m);
+	border: 1px solid var(--border-strong);
+	filter: saturate(0.94) contrast(1.05);
+	box-shadow: var(--shadow-2);
+}
+
+.portrait-frame::before {
+	content: "";
+	position: absolute;
+	inset: -10px;
+	pointer-events: none;
+	opacity: 0.85;
+	background:
+		linear-gradient(var(--accent) 0 0) left 0 top 0 / 16px 1px,
+		linear-gradient(var(--accent) 0 0) left 0 top 0 / 1px 16px,
+		linear-gradient(var(--accent) 0 0) right 0 top 0 / 16px 1px,
+		linear-gradient(var(--accent) 0 0) right 0 top 0 / 1px 16px,
+		linear-gradient(var(--accent) 0 0) left 0 bottom 0 / 16px 1px,
+		linear-gradient(var(--accent) 0 0) left 0 bottom 0 / 1px 16px,
+		linear-gradient(var(--accent) 0 0) right 0 bottom 0 / 16px 1px,
+		linear-gradient(var(--accent) 0 0) right 0 bottom 0 / 1px 16px;
+	background-repeat: no-repeat;
+}
+
+.portrait-scan {
+	position: absolute;
+	inset: 1px;
+	border-radius: var(--radius-m);
+	pointer-events: none;
+	overflow: hidden;
+	background: linear-gradient(180deg,
+		transparent 0 42%,
+		rgba(var(--accent-rgb), 0.16) 50%,
+		transparent 58% 100%);
+	background-size: 100% 240%;
+	background-position: 0 -70%;
+	animation: portrait-scan 6s ease-in-out infinite;
+	mix-blend-mode: screen;
+}
+
+@keyframes portrait-scan {
+	0% { background-position: 0 -70%; }
+	60% { background-position: 0 170%; }
+	100% { background-position: 0 170%; }
+}
+
+.portrait-tag {
+	position: absolute;
+	left: -14px;
+	bottom: 18px;
+	padding: 5px 9px;
+	font-family: var(--font-mono);
+	font-size: 9.5px;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--ink-2);
+	background: rgba(var(--canvas-rgb), 0.92);
+	border: 1px solid var(--border-strong);
+	border-radius: 3px;
+}
+
+.portrait-tag b {
+	color: var(--accent);
+	font-weight: 600;
+}
+
+/* the orbit ring you liked keeps circling the portrait */
+.about-portrait {
+	position: relative;
+}
+
+/* ------------------------------------------------------------
+   4 · FLOWING WIRES — project connections are ember dotted
+   lines in motion (dash animation lives in styles.css); no
+   traveling dots on project diagrams by design.
+   ------------------------------------------------------------ */
+.diagram .d-wire {
+	stroke: rgba(var(--accent-rgb), 0.52);
+}
+
+.diagram .d-wire-accent {
+	stroke: var(--accent);
+}
+
+.flow-packet {
+	display: none;
+}
+
+/* ------------------------------------------------------------
+   5 · RESERVED SLOT — room for the next system.
+   ------------------------------------------------------------ */
+.project-slot {
+	margin-top: var(--space-8);
+	padding: var(--space-6);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-4);
+	border: 1px dashed var(--border-strong);
+	border-radius: var(--radius-l);
+	background: rgba(var(--canvas-rgb), 0.35);
+}
+
+.project-slot .slot-head {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+.project-slot .slot-pulse {
+	width: 9px;
+	height: 9px;
+	border-radius: 50%;
+	background: var(--accent);
+	animation: slot-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes slot-pulse {
+	0% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.5); }
+	70% { box-shadow: 0 0 0 12px rgba(var(--accent-rgb), 0); }
+	100% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0); }
+}
+
+.project-slot .slot-index {
+	font-family: var(--font-mono);
+	font-size: 12px;
+	letter-spacing: 0.26em;
+	text-transform: uppercase;
+	color: var(--accent);
+}
+
+.project-slot h3 {
+	font-family: var(--font-display);
+	font-size: 22px;
+	font-weight: 500;
+	color: var(--ink-2);
+}
+
+.project-slot p {
+	font-size: 14px;
+	color: var(--ink-3);
+	max-width: 420px;
+}
+
+/* ------------------------------------------------------------
+   6 · REDUCED MOTION — every new animation collapses politely.
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+	.brand-sigil .sigil-ring,
+	.brand-sigil .sigil-dot,
+	.portrait-scan,
+	.project-slot .slot-pulse {
+		animation: none;
+	}
+
+	.portrait-scan {
+		display: none;
+	}
+}
+
+@media (max-width: 720px) {
+	.hero::after {
+		inset: 92px 14px 22px;
+	}
+
+	.portrait-tag {
+		left: -6px;
+	}
+}

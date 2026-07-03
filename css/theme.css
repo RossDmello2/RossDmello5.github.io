@@ -1,0 +1,283 @@
+/* ============================================================
+   ROSS DMELLO — CONTROL-ROOM / BLUEPRINT THEME LAYER
+   Dark-first redesign. Loads after styles.css and re-skins the
+   whole system through the shared token sheet, then sharpens
+   individual components. The canvas engines re-read these
+   tokens live, so every animation recolors itself.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1 · TOKENS — dark is the house default now.
+   ------------------------------------------------------------ */
+:root,
+[data-theme="auto"],
+[data-theme="dark"] {
+	--canvas: #0B0D12;
+	--canvas-rgb: 11, 13, 18;
+	--surface: #11141B;
+	--surface-2: #171B24;
+	--surface-raised: #141821;
+	--border: #222836;
+	--border-strong: #333C50;
+	--ink: #E9ECF4;
+	--ink-2: #9AA2B4;
+	--ink-3: #5E6779;
+	--ink-inverse: #0B0D12;
+	--accent: #FF6A3C;
+	--accent-strong: #FF8E64;
+	--accent-soft: #2A1A13;
+	--accent-softer: #1D140F;
+	--accent-rgb: 255, 106, 60;
+	--ok: #7ED9A0;
+	--ok-soft: #13251B;
+	--warn: #F2BC57;
+	--warn-soft: #2A2212;
+	--risk: #F28273;
+	--risk-soft: #2B1714;
+	--info: #74B9E8;
+	--info-soft: #142230;
+	--shadow-1: 0 1px 2px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.35);
+	--shadow-2: 0 2px 8px rgba(0, 0, 0, 0.55), 0 16px 40px rgba(0, 0, 0, 0.5);
+	--grain-opacity: 0.06;
+	--grid-line: rgba(150, 165, 205, 0.055);
+	--font-display: 'Fraunces', Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+	--font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	--font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+	--radius-s: 4px;
+	--radius-m: 8px;
+	--radius-l: 14px;
+}
+
+/* light: cool blueprint paper, not warm ivory */
+[data-theme="light"] {
+	--canvas: #F4F5F8;
+	--canvas-rgb: 244, 245, 248;
+	--surface: #EBEDF2;
+	--surface-2: #E2E5EC;
+	--surface-raised: #FFFFFF;
+	--border: #D9DDE6;
+	--border-strong: #BFC6D4;
+	--ink: #14171E;
+	--ink-2: #545C6E;
+	--ink-3: #8A92A4;
+	--ink-inverse: #F4F5F8;
+	--accent: #E14E1F;
+	--accent-strong: #C43F14;
+	--accent-soft: #FBE3D9;
+	--accent-softer: #FAF0EA;
+	--accent-rgb: 225, 78, 31;
+	--ok: #2E7D4F;
+	--ok-soft: #E2F0E6;
+	--warn: #A16E14;
+	--warn-soft: #F6ECD4;
+	--risk: #C04A3C;
+	--risk-soft: #F8E4E0;
+	--info: #35688E;
+	--info-soft: #E1EBF3;
+	--shadow-1: 0 1px 2px rgba(20, 23, 30, 0.06), 0 4px 14px rgba(20, 23, 30, 0.06);
+	--shadow-2: 0 2px 6px rgba(20, 23, 30, 0.07), 0 12px 32px rgba(20, 23, 30, 0.1);
+	--grain-opacity: 0.035;
+	--grid-line: rgba(35, 55, 95, 0.06);
+}
+
+/* ------------------------------------------------------------
+   2 · BLUEPRINT CANVAS — engineering grid under everything.
+   ------------------------------------------------------------ */
+body {
+	background-image:
+		radial-gradient(1100px 520px at 78% -8%, rgba(var(--accent-rgb), 0.06), transparent 62%),
+		linear-gradient(var(--grid-line) 1px, transparent 1px),
+		linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+	background-size: auto, 56px 56px, 56px 56px;
+	background-attachment: fixed, fixed, fixed;
+}
+
+/* ------------------------------------------------------------
+   3 · TYPE VOICE — spec-sheet eyebrows, engraved titles.
+   ------------------------------------------------------------ */
+.eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	font-family: var(--font-mono);
+	font-size: 11px;
+	font-weight: 500;
+	letter-spacing: 0.26em;
+	text-transform: uppercase;
+	color: var(--accent);
+}
+
+.eyebrow::before {
+	content: "";
+	width: 36px;
+	height: 1px;
+	border-radius: 0;
+	background: repeating-linear-gradient(90deg, var(--accent) 0 4px, transparent 4px 8px);
+	opacity: 0.9;
+}
+
+.section-title,
+.contact-title {
+	letter-spacing: -0.015em;
+}
+
+/* ------------------------------------------------------------
+   4 · NAV — glass instrument bar.
+   ------------------------------------------------------------ */
+.nav.is-scrolled {
+	background: rgba(var(--canvas-rgb), 0.78);
+	-webkit-backdrop-filter: blur(16px) saturate(1.25);
+	backdrop-filter: blur(16px) saturate(1.25);
+	border-bottom: 1px solid var(--border);
+}
+
+.nav-link {
+	font-family: var(--font-mono);
+	font-size: 12px;
+	letter-spacing: 0.08em;
+	text-transform: lowercase;
+}
+
+.nav-brand-mark {
+	background: transparent;
+	border: none;
+	box-shadow: none;
+	padding: 0;
+	width: auto;
+	height: auto;
+}
+
+.nav-brand:hover .nav-brand-mark {
+	background: transparent;
+	transform: none;
+}
+
+/* ------------------------------------------------------------
+   5 · BUTTONS — mission-control switches.
+   ------------------------------------------------------------ */
+.btn {
+	border-radius: var(--radius-s);
+	font-family: var(--font-mono);
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+}
+
+.btn-primary,
+.is-dark .btn-primary {
+	background: var(--accent);
+	color: #140D09;
+	box-shadow: 0 0 0 1px rgba(var(--accent-rgb), 0.9), 0 8px 28px rgba(var(--accent-rgb), 0.28);
+}
+
+.btn-primary:hover,
+.is-dark .btn-primary:hover {
+	background: var(--accent-strong);
+	color: #140D09;
+}
+
+.btn-ghost {
+	border: 1px solid var(--border-strong);
+	background: rgba(var(--canvas-rgb), 0.4);
+}
+
+/* ------------------------------------------------------------
+   6 · CURSOR — the original quiet pair: solid dot + thin ring.
+   ------------------------------------------------------------ */
+.cursor-halo {
+	border: 1px solid rgba(var(--accent-rgb), 0.45);
+}
+
+/* ------------------------------------------------------------
+   7 · MARQUEE — telemetry strip between dashed rails.
+   ------------------------------------------------------------ */
+.marquee {
+	background: var(--surface);
+	border-top: 1px dashed var(--border-strong);
+	border-bottom: 1px dashed var(--border-strong);
+}
+
+.marquee-track span {
+	font-family: var(--font-mono);
+	font-size: 12px;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--ink-2);
+}
+
+.marquee-track span::after {
+	background: var(--accent);
+}
+
+/* ------------------------------------------------------------
+   8 · SPEC-SHEET DETAILS across existing components.
+   ------------------------------------------------------------ */
+.tier,
+.project-index,
+.principle-num,
+.timeline-date,
+.stat-label,
+.skill-lane-note,
+.channel-kind,
+.intern-meta {
+	font-family: var(--font-mono);
+}
+
+.stat-num {
+	font-family: var(--font-display);
+}
+
+/* corner registration brackets on key cards */
+.tilt-card::before,
+.intern-card::before,
+.principle::before,
+.terminal::before {
+	content: "";
+	position: absolute;
+	inset: 7px;
+	pointer-events: none;
+	z-index: 2;
+	opacity: 0.55;
+	background:
+		linear-gradient(var(--accent) 0 0) left 0 top 0 / 12px 1px,
+		linear-gradient(var(--accent) 0 0) left 0 top 0 / 1px 12px,
+		linear-gradient(var(--accent) 0 0) right 0 top 0 / 12px 1px,
+		linear-gradient(var(--accent) 0 0) right 0 top 0 / 1px 12px,
+		linear-gradient(var(--accent) 0 0) left 0 bottom 0 / 12px 1px,
+		linear-gradient(var(--accent) 0 0) left 0 bottom 0 / 1px 12px,
+		linear-gradient(var(--accent) 0 0) right 0 bottom 0 / 12px 1px,
+		linear-gradient(var(--accent) 0 0) right 0 bottom 0 / 1px 12px;
+	background-repeat: no-repeat;
+}
+
+.tilt-card,
+.intern-card,
+.principle,
+.terminal {
+	position: relative;
+}
+
+/* pipeline legend swatches follow the live palette */
+.pipeline-legend .swatch {
+	border-radius: 2px;
+}
+
+/* terminal gets a deeper phosphor well */
+.terminal-body {
+	background: #07090D;
+}
+
+[data-theme="light"] .terminal-body {
+	background: #101319;
+}
+
+/* timeline spine glow */
+.timeline-item.is-lit::before {
+	box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.18), 0 0 18px rgba(var(--accent-rgb), 0.55);
+}
+
+/* selection */
+::selection {
+	background: rgba(var(--accent-rgb), 0.35);
+}
