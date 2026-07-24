@@ -10,12 +10,11 @@ js/main.js        theme engine, scroll effects, reveals, counters, cursor, tilt,
 js/engines.js     three canvas engines: hero gradient mesh, pipeline packet
                   simulation, terminal log replay
 
-No images folder — by design
+Visual assets
 ----------------------------
-Every visual is hand-drawn SVG (project architecture diagrams) or live canvas
-(hero mesh, pipeline sim, terminal). Zero raster assets means zero extra
-requests, infinite sharpness at any zoom, and visuals that re-color themselves
-when the theme changes.
+The project architecture diagrams are hand-drawn SVG and the hero, pipeline,
+and terminal visuals use live canvas. The portrait is the one local raster
+asset; the remaining visuals re-color themselves when the theme changes.
 
 Running it
 ----------

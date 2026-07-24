@@ -528,7 +528,7 @@
 
 	var COMMANDS = [
 		{ label: 'Go to About', kind: 'section', run: goTo('#about') },
-		{ label: 'Go to Internship (HPCL)', kind: 'section', run: goTo('#internship') },
+		{ label: 'Go to Experience (HPCL)', kind: 'section', run: goTo('#internship') },
 		{ label: 'Go to Philosophy & pipeline', kind: 'section', run: goTo('#philosophy') },
 		{ label: 'Go to Projects', kind: 'section', run: goTo('#projects') },
 		{ label: 'Go to Questions (FAQ)', kind: 'section', run: goTo('#faq') },
