@@ -13,6 +13,7 @@
 
 	var shared = window.__rd || {};
 	var reduceMotion = shared.reduceMotion || window.matchMedia('(prefers-reduced-motion: reduce)');
+	var coarsePointer = window.matchMedia('(pointer: coarse)');
 	var cssVar = shared.cssVar || function (n, f) {
 		var v = getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 		return v || f;
@@ -299,7 +300,7 @@
 
 		setup();
 
-		if (reduceMotion.matches) {
+		if (reduceMotion.matches || coarsePointer.matches) {
 			/* static diagram: stations + rails, no packets, no loop */
 			if (layout) {
 				ctx.strokeStyle = colors.edge;
@@ -358,9 +359,10 @@
 			});
 		}
 
-		if (reduceMotion.matches) { renderInstant(); return; }
+		if (reduceMotion.matches || coarsePointer.matches) { renderInstant(); return; }
 
 		var playing = false;
+		var visible = false;
 
 		function play() {
 			if (playing) { return; }
@@ -369,7 +371,7 @@
 			var i = 0;
 
 			function nextLine() {
-				if (document.hidden) { setTimeout(nextLine, 600); return; } /* wait out hidden tabs */
+				if (!visible || document.hidden) { setTimeout(nextLine, 600); return; } /* wait while offscreen or hidden */
 				if (i >= SCRIPT.length) {
 					/* hold the finished log, then replay */
 					setTimeout(function () { playing = false; play(); }, 6000);
@@ -407,23 +409,13 @@
 			nextLine();
 		}
 
-		if ('IntersectionObserver' in window) {
-			var io = new IntersectionObserver(function (entries) {
-				entries.forEach(function (entry) {
-					if (entry.isIntersecting) {
-						play();
-						io.unobserve(body);
-					}
-				});
-			}, { threshold: 0.3 });
-			io.observe(body);
-		} else {
-			play();
-		}
+		whenVisible(body, function (isVisible) {
+			visible = isVisible;
+			if (visible) { play(); }
+		});
 	}
 
 	initHeroMesh();
 	initPipeline();
 	initTerminal();
 })();
-

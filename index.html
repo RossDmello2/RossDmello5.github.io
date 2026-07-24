@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/theme.css">
 <link rel="stylesheet" href="css/blueprint.css">
+<link rel="stylesheet" href="css/v3.css?v=16">
 </head>
 
 <body class="no-js">
@@ -74,7 +75,7 @@
 	</div>
 </header>
 
-<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
 	<ul>
 		<li><a href="#about">About</a></li>
 		<li><a href="#internship">Experience</a></li>
@@ -95,48 +96,59 @@
 	<div class="hero-fallback" aria-hidden="true"></div>
 	<canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
 	<div class="wrap hero-inner">
-		<div class="hero-hud-readout" aria-hidden="true">
-			<span>SYS // PORTFOLIO <b>v2.0</b></span>
-			<span>19.0760°N · 72.8777°E — MUMBAI</span>
-			<span>MODE <b>FAIL-CLOSED</b></span>
+		<div class="hero-copy">
+			<div class="hero-hud-readout" aria-hidden="true">
+				<span>VERIFIED SYSTEMS <b>v3.0</b></span>
+				<span>MUMBAI, INDIA</span>
+				<span>19.0760°N · 72.8777°E</span>
+				<span>MODE <b>FAIL-CLOSED</b></span>
+			</div>
+			<p class="hero-status">
+				<span class="pulse" aria-hidden="true"></span>
+				Mumbai, India · open to backend &amp; AI-automation roles
+			</p>
+			<h1 class="hero-title" id="heroTitle" data-vapour-title>
+				<span class="line" data-split>Engineering AI</span>
+				<span class="line" data-split>systems that</span>
+				<span class="line" data-split><em class="accent-word" data-split-em>refuse</em> to guess.</span>
+			</h1>
+			<p class="hero-sub">
+				I’m <strong>Ross Anthony Dmello</strong> — an AI engineer and GenAI developer who builds
+				backend-minded automation: RAG pipelines, agentic workflows, and document intelligence
+				wrapped in the reliability controls that make them trustworthy — validation, fail-closed
+				routing, rate-limit protection, and auditable behavior.
+			</p>
+			<div class="hero-cta-row">
+				<a class="btn btn-primary" href="#projects" data-cursor>
+					See the work
+					<span class="arrow" aria-hidden="true">→</span>
+				</a>
+				<a class="btn btn-ghost" href="https://github.com/RossDmello2" target="_blank" rel="noopener noreferrer" data-cursor>
+					GitHub · RossDmello2
+				</a>
+			</div>
 		</div>
-		<p class="hero-status">
-			<span class="pulse" aria-hidden="true"></span>
-			Mumbai, India · open to backend &amp; AI-automation roles
-		</p>
-		<h1 class="hero-title" id="heroTitle">
-			<span class="line" data-split>Engineering AI</span>
-			<span class="line" data-split>systems that</span>
-			<span class="line" data-split><em class="accent-word" data-split-em>refuse</em> to guess.</span>
-		</h1>
-		<p class="hero-sub">
-			I’m <strong>Ross Anthony Dmello</strong> — an AI engineer and GenAI developer who builds
-			backend-minded automation: RAG pipelines, agentic workflows, and document intelligence
-			wrapped in the reliability controls that make them trustworthy — validation, fail-closed
-			routing, rate-limit protection, and auditable behavior.
-		</p>
-		<p class="hero-ticker">
-			<span class="t-dim">currently shipping →</span>
-			<span class="hero-ticker-window">
-				<span class="hero-ticker-reel" id="tickerReel">
-					<span>governed agentic chatbots</span>
-					<span>local-first voice RAG</span>
-					<span>vision-first document QA</span>
-					<span>n8n automation workflows</span>
-					<span>fail-closed API contracts</span>
-					<span>governed agentic chatbots</span>
-				</span>
-			</span>
-		</p>
-		<div class="hero-cta-row">
-			<a class="btn btn-primary" href="#projects" data-magnetic data-cursor>
-				See the work
-				<span class="arrow" aria-hidden="true">→</span>
-			</a>
-			<a class="btn btn-ghost" href="https://github.com/RossDmello2" target="_blank" rel="noopener noreferrer" data-magnetic data-cursor>
-				GitHub · RossDmello2
-			</a>
-		</div>
+		<aside class="hero-evidence" aria-label="Evidence pipeline overview">
+			<div class="evidence-intake">
+				<span class="evidence-intake-label">Claim packet</span>
+				<strong>RD-001</strong>
+				<span>status: received</span>
+			</div>
+			<ol class="hero-route">
+				<li><span>01</span><strong>Validate</strong><small>check the contract</small></li>
+				<li><span>02</span><strong>Retrieve</strong><small>gather evidence</small></li>
+				<li><span>03</span><strong>Execute</strong><small>stay in scope</small></li>
+				<li><span>04</span><strong>Persist</strong><small>record the result</small></li>
+				<li><span>05</span><strong>Observe</strong><small>explain what happened</small></li>
+			</ol>
+			<div class="hero-route-outcome">
+				<span class="route-outcome-good">supported - continue</span>
+				<span class="route-outcome-review">unsupported - manual review</span>
+			</div>
+			<p class="hero-focus">
+				currently shipping: governed agentic chatbots · local-first voice RAG · vision-first document QA · n8n automation workflows · fail-closed API contracts
+			</p>
+		</aside>
 	</div>
 	<div class="hero-scroll-hint" aria-hidden="true">
 		<span class="wheel"></span>
@@ -172,7 +184,7 @@
 <section class="section" id="about" aria-label="About Ross">
 	<div class="wrap">
 		<p class="eyebrow reveal">01 · About</p>
-		<h2 class="section-title reveal" style="--reveal-delay: 60ms">A builder who treats every claim<br>like it will be audited.</h2>
+		<h2 class="section-title reveal" style="--reveal-delay: 60ms" data-vapour-title>A builder who treats every claim<br>like it will be audited.</h2>
 		<div class="grid-2" style="margin-top: var(--space-7)">
 			<div class="about-prose reveal" style="--reveal-delay: 120ms">
 				<p class="lead-cap">
@@ -261,7 +273,7 @@
 <section class="section section-alt" id="internship" aria-label="HPCL experience">
 	<div class="wrap">
 		<p class="eyebrow reveal">02 · Experience</p>
-		<h2 class="section-title reveal" style="--reveal-delay: 60ms">Six months inside a Fortune-Global-500-scale<br>enterprise IS function.</h2>
+		<h2 class="section-title reveal" style="--reveal-delay: 60ms" data-vapour-title>Six months inside a Fortune-Global-500-scale<br>enterprise IS function.</h2>
 		<p class="section-lede reveal" style="--reveal-delay: 120ms">
 			Hindustan Petroleum Corporation Limited is a Government-of-India central PSU. Its Information
 			Systems — Development division is where enterprise constraints are real: confidentiality,
@@ -271,7 +283,7 @@
 		<div class="intern-card reveal-scale" style="--reveal-delay: 160ms; margin-top: var(--space-7)">
 			<div class="intern-head">
 				<div>
-					<div class="intern-org">Hindustan Petroleum Corporation Limited</div>
+					<div class="intern-org" data-vapour-title>Hindustan Petroleum Corporation Limited</div>
 					<div class="intern-role">Information Systems Intern — Development · IS Development Division</div>
 				</div>
 				<div class="intern-meta">
@@ -344,7 +356,7 @@
 <section class="section" id="philosophy" aria-label="Engineering philosophy">
 	<div class="wrap">
 		<p class="eyebrow reveal">03 · Philosophy</p>
-		<h2 class="section-title reveal" style="--reveal-delay: 60ms">The model is 10% of the system.<br>I engineer the other 90%.</h2>
+		<h2 class="section-title reveal" style="--reveal-delay: 60ms" data-vapour-title>The model is 10% of the system.<br>I engineer the other 90%.</h2>
 		<p class="section-lede reveal" style="--reveal-delay: 120ms">
 			Below is a live simulation of the canonical workflow shape I build to. Watch the packets:
 			valid data flows through six stages to persistence — malformed data is caught at the
@@ -352,12 +364,22 @@
 			This is the whole philosophy, animated.
 		</p>
 
-		<div class="pipeline-stage reveal-scale" style="--reveal-delay: 160ms">
-			<canvas class="pipeline-canvas" id="pipelineCanvas" aria-label="Animated pipeline: Trigger, Validate, Route, Execute, Persist, Observe; invalid packets diverted to manual review" role="img"></canvas>
-			<div class="pipeline-legend">
-				<span class="key"><span class="swatch" style="background: var(--accent)"></span> valid packet → automated</span>
-				<span class="key"><span class="swatch" style="background: var(--warn)"></span> malformed packet → manual review</span>
-				<span class="key"><span class="swatch" style="background: var(--ok)"></span> persisted · observed</span>
+		<div class="evidence-story" id="evidenceStory">
+			<ol class="evidence-steps" aria-label="Validation packet stages">
+				<li data-evidence-step="0"><span>01</span><strong>Validate</strong><small>Reject malformed input before it enters the system.</small></li>
+				<li data-evidence-step="1"><span>02</span><strong>Retrieve</strong><small>Ground the decision in the strongest available evidence.</small></li>
+				<li data-evidence-step="2"><span>03</span><strong>Execute</strong><small>Route only inside the approved scope and contract.</small></li>
+				<li data-evidence-step="3"><span>04</span><strong>Persist</strong><small>Write a structured result or a manual-review state.</small></li>
+				<li data-evidence-step="4"><span>05</span><strong>Observe</strong><small>Keep the execution explainable after the fact.</small></li>
+			</ol>
+			<div class="pipeline-stage reveal-scale" style="--reveal-delay: 160ms">
+				<div class="pipeline-kicker">One packet, two honest outcomes</div>
+				<canvas class="pipeline-canvas" id="pipelineCanvas" aria-label="Animated pipeline: Trigger, Validate, Route, Execute, Persist, Observe; invalid packets diverted to manual review" role="img"></canvas>
+				<div class="pipeline-legend">
+					<span class="key"><span class="swatch" style="background: var(--accent)"></span> valid packet → automated</span>
+					<span class="key"><span class="swatch" style="background: var(--warn)"></span> malformed packet → manual review</span>
+					<span class="key"><span class="swatch" style="background: var(--ok)"></span> persisted · observed</span>
+				</div>
 			</div>
 		</div>
 
@@ -405,7 +427,7 @@
 <section class="section section-alt" id="projects" aria-label="Projects">
 	<div class="wrap">
 		<p class="eyebrow reveal">04 · Projects</p>
-		<h2 class="section-title reveal" style="--reveal-delay: 60ms">Six systems, all public,<br>all documented.</h2>
+		<h2 class="section-title reveal" style="--reveal-delay: 60ms" data-vapour-title>Six systems, all public,<br>all documented.</h2>
 		<p class="section-lede reveal" style="--reveal-delay: 120ms">
 			Every project below links to its public repository. The diagrams are the real
 			architectures, drawn by hand — because the system design is the portfolio.
@@ -415,7 +437,7 @@
 		<article class="project">
 			<div class="reveal">
 				<div class="project-index">PROJECT — 01 <span class="tier tier-artifact" style="margin-left: 10px">Artifact · GitHub</span></div>
-				<h3 class="project-name">HPCL Governed Agentic Chatbot</h3>
+				<h3 class="project-name" data-vapour-title>HPCL Governed Agentic Chatbot</h3>
 				<p class="project-tagline">An enterprise assistant that knows what it is not allowed to answer.</p>
 				<p class="project-desc">
 					A template-driven, multi-source chatbot scaffold built with <strong>FastAPI</strong>. A Python
@@ -447,7 +469,7 @@
 						<text x="36" y="72">user query</text>
 						<rect class="d-box d-box-accent" x="170" y="36" width="128" height="64" rx="8"/>
 						<text class="d-title" x="188" y="62">control plane</text>
-						<text x="188" y="80">auth · scope · confirm</text>
+						<text class="d-small" x="178" y="80">auth · scope · confirm</text>
 						<rect class="d-box" x="342" y="18" width="102" height="40" rx="8"/>
 						<text x="358" y="42">SQL lane</text>
 						<rect class="d-box" x="342" y="72" width="102" height="40" rx="8"/>
@@ -456,16 +478,17 @@
 						<text x="358" y="150">API lane</text>
 						<rect class="d-box" x="170" y="150" width="128" height="44" rx="8"/>
 						<text x="188" y="176">template scope</text>
-						<rect class="d-box" x="16" y="228" width="428" height="48" rx="8"/>
-						<text x="34" y="250">evidence-backed response · structured errors · refusal on scope breach</text>
-						<text class="d-title" x="34" y="266">fail closed by default</text>
+						<rect class="d-box" x="16" y="214" width="428" height="70" rx="8"/>
+						<text x="34" y="235">evidence-backed response · structured errors</text>
+						<text x="34" y="252">refusal on scope breach</text>
+						<text class="d-title" x="34" y="271">fail closed by default</text>
 						<path class="d-wire d-wire-accent" d="M126 68 H170"/>
 						<path class="d-wire" d="M298 52 C320 44, 322 40, 342 38"/>
 						<path class="d-wire" d="M298 68 C320 74, 322 88, 342 92"/>
 						<path class="d-wire" d="M298 84 C324 104, 322 138, 342 146"/>
 						<path class="d-wire d-wire-accent" d="M234 100 V150"/>
-						<path class="d-wire" d="M234 194 V228"/>
-						<path class="d-wire" d="M393 166 C393 200, 340 214, 300 228"/>
+						<path class="d-wire" d="M234 194 V214"/>
+						<path class="d-wire" d="M393 166 C393 196, 340 206, 300 214"/>
 					</svg>
 				</div>
 			</div>
@@ -475,7 +498,7 @@
 		<article class="project">
 			<div class="reveal">
 				<div class="project-index">PROJECT — 02 <span class="tier tier-artifact" style="margin-left: 10px">Artifact · GitHub</span></div>
-				<h3 class="project-name">VoiceRAG — Local-First Voice Assistant</h3>
+				<h3 class="project-name" data-vapour-title>VoiceRAG — Local-First Voice Assistant</h3>
 				<p class="project-tagline">Speak a question; get a grounded answer back — without shipping your documents to anyone.</p>
 				<p class="project-desc">
 					An end-to-end voice RAG pipeline: <strong>Groq Whisper</strong> speech-to-text →
@@ -504,16 +527,16 @@
 					<svg class="diagram reveal-draw" viewBox="0 0 460 300" aria-label="Architecture: voice input to STT, embeddings, vector retrieval, grounded generation, then TTS audio out">
 						<text class="d-title" x="16" y="26">local-first voice loop</text>
 						<rect class="d-box" x="16" y="46" width="92" height="44" rx="8"/>
-						<text x="34" y="72">🎙 voice in</text>
+						<text x="34" y="72">voice in</text>
 						<rect class="d-box" x="148" y="46" width="104" height="44" rx="8"/>
 						<text x="162" y="66">Whisper STT</text>
 						<text x="162" y="82">(Groq)</text>
 						<rect class="d-box" x="292" y="46" width="152" height="44" rx="8"/>
 						<text x="308" y="66">LangGraph agent</text>
-						<text x="308" y="82">route · retrieve · ground</text>
+						<text class="d-small" x="304" y="82">route · retrieve · ground</text>
 						<rect class="d-box d-box-accent" x="148" y="128" width="128 " height="44" rx="8"/>
 						<text x="164" y="148">Qdrant vectors</text>
-						<text x="164" y="164">Ollama embeddings</text>
+						<text class="d-small" x="164" y="164">Ollama embeddings</text>
 						<rect class="d-box" x="316" y="128" width="128" height="44" rx="8"/>
 						<text x="332" y="148">generation</text>
 						<text x="332" y="164">Groq / Ollama</text>
@@ -521,7 +544,7 @@
 						<text x="164" y="232">Kokoro TTS</text>
 						<text x="164" y="248">ONNX · local</text>
 						<rect class="d-box" x="16" y="212" width="92" height="44" rx="8"/>
-						<text x="34" y="238">🔊 audio out</text>
+						<text x="34" y="238">audio out</text>
 						<text x="300" y="236">JWT auth · SSE streaming</text>
 						<text x="300" y="252">CI: Actions + CodeQL</text>
 						<path class="d-wire d-wire-accent" d="M108 68 H148"/>
@@ -539,7 +562,7 @@
 		<article class="project">
 			<div class="reveal">
 				<div class="project-index">PROJECT — 03 <span class="tier tier-artifact" style="margin-left: 10px">Artifact · GitHub</span></div>
-				<h3 class="project-name">VisoRAG — Vision-First Document QA</h3>
+				<h3 class="project-name" data-vapour-title>VisoRAG — Vision-First Document QA</h3>
 				<p class="project-tagline">Stop parsing broken PDF text — look at the page the way a human does.</p>
 				<p class="project-desc">
 					A document QA and field-extraction kit that renders PDF, DOCX, and images as
@@ -568,7 +591,7 @@
 					<svg class="diagram reveal-draw" viewBox="0 0 460 300" aria-label="Architecture: documents rendered to page images, embedded with ColQwen2, retrieved via MaxSim, answered by a vision-language model">
 						<text class="d-title" x="16" y="26">vision-first retrieval</text>
 						<rect class="d-box" x="16" y="46" width="118" height="56" rx="8"/>
-						<text x="32" y="68">PDF · DOCX · IMG</text>
+						<text class="d-small" x="28" y="68">PDF · DOCX · IMG</text>
 						<text x="32" y="86">any messy scan</text>
 						<rect class="d-box" x="178" y="46" width="118" height="56" rx="8"/>
 						<text x="194" y="68">render pages</text>
@@ -599,7 +622,7 @@
 		<article class="project">
 			<div class="reveal">
 				<div class="project-index">PROJECT — 04 <span class="tier tier-artifact" style="margin-left: 10px">Artifact · GitHub</span></div>
-				<h3 class="project-name">n8n Automation Workflows</h3>
+				<h3 class="project-name" data-vapour-title>n8n Automation Workflows</h3>
 				<p class="project-tagline">Nineteen production-shaped workflows, sanitized and published as templates.</p>
 				<p class="project-desc">
 					A public library of <strong>19 sanitized n8n workflow templates</strong> distilled from real
@@ -641,7 +664,7 @@
 						<text x="34" y="154">observe</text>
 						<rect class="d-box" x="152" y="216" width="232" height="44" rx="8"/>
 						<text x="170" y="238">manual review lane</text>
-						<text x="170" y="254">low-text · schema fail · rate-limit</text>
+						<text class="d-small" x="170" y="254">low-text · schema fail · rate-limit</text>
 						<path class="d-wire d-wire-accent" d="M112 68 H152"/>
 						<path class="d-wire d-wire-accent" d="M248 68 H288"/>
 						<path class="d-wire" d="M336 88 V130"/>
@@ -657,7 +680,7 @@
 		<article class="project">
 			<div class="reveal">
 				<div class="project-index">PROJECT — 05 <span class="tier tier-artifact" style="margin-left: 10px">Artifact · GitHub</span></div>
-				<h3 class="project-name">local-doc-rag</h3>
+				<h3 class="project-name" data-vapour-title>local-doc-rag</h3>
 				<p class="project-tagline">RAG with zero frameworks: the browser, Ollama, Qdrant — and nothing else.</p>
 				<p class="project-desc">
 					A browser-only document RAG client in <strong>vanilla JavaScript</strong> — no build step, no
@@ -690,7 +713,7 @@
 						<text x="34" y="142">grounded answer UI</text>
 						<rect class="d-box d-box-accent" x="274" y="52" width="170" height="50" rx="8"/>
 						<text x="292" y="74">Ollama · localhost</text>
-						<text x="292" y="92">embeddings + generation</text>
+						<text class="d-small" x="292" y="92">embeddings + generation</text>
 						<rect class="d-box d-box-accent" x="274" y="122" width="170" height="50" rx="8"/>
 						<text x="292" y="144">Qdrant · localhost</text>
 						<text x="292" y="162">similarity search</text>
@@ -709,7 +732,7 @@
 		<article class="project">
 			<div class="reveal">
 				<div class="project-index">PROJECT — 06 <span class="tier tier-artifact" style="margin-left: 10px">Artifact · GitHub</span></div>
-				<h3 class="project-name">Verbatim — Browser Transcriber</h3>
+				<h3 class="project-name" data-vapour-title>Verbatim — Browser Transcriber</h3>
 				<p class="project-tagline">A static page that behaves like a transcription workstation.</p>
 				<p class="project-desc">
 					A static, installation-free <strong>speech-to-text workspace</strong> that runs entirely in the
@@ -737,9 +760,9 @@
 					<svg class="diagram reveal-draw" viewBox="0 0 460 300" aria-label="Diagram: live microphone or audio file input, in-browser transcription, translation and BYOK assistant, then export">
 						<text class="d-title" x="16" y="26">zero-install workstation</text>
 						<rect class="d-box" x="16" y="48" width="100" height="44" rx="8"/>
-						<text x="32" y="74">🎙 live mic</text>
+						<text x="32" y="74">live mic</text>
 						<rect class="d-box" x="16" y="110" width="100" height="44" rx="8"/>
-						<text x="32" y="136">📁 audio file</text>
+						<text x="32" y="136">audio file</text>
 						<rect class="d-box d-box-accent" x="170" y="72" width="130" height="58" rx="8"/>
 						<text class="d-title" x="186" y="96">transcribe</text>
 						<text x="186" y="114">in-browser</text>
@@ -748,14 +771,15 @@
 						<rect class="d-box" x="344" y="110" width="100" height="44" rx="8"/>
 						<text x="358" y="130">BYOK</text>
 						<text x="358" y="146">assistant</text>
-						<rect class="d-box" x="16" y="210" width="428" height="56" rx="8"/>
-						<text x="34" y="234">clean export · static hosting · user key never leaves the browser</text>
-						<text class="d-title" x="34" y="252">earliest public artifact · Mar 2026</text>
+						<rect class="d-box" x="16" y="204" width="428" height="72" rx="8"/>
+						<text x="34" y="225">clean export · static hosting</text>
+						<text x="34" y="242">user key never leaves the browser</text>
+						<text class="d-title" x="34" y="263">earliest public artifact · Mar 2026</text>
 						<path class="d-wire d-wire-accent" d="M116 70 C140 76, 150 84, 170 92"/>
 						<path class="d-wire d-wire-accent" d="M116 132 C140 126, 150 118, 170 110"/>
 						<path class="d-wire" d="M300 88 C320 80, 324 74, 344 70"/>
 						<path class="d-wire" d="M300 114 C320 122, 324 126, 344 130"/>
-						<path class="d-wire" d="M235 130 V210"/>
+						<path class="d-wire" d="M235 130 V204"/>
 					</svg>
 				</div>
 			</div>
@@ -966,7 +990,7 @@
 <!-- ==========================================================
      COMMAND PALETTE · TOAST · CONFETTI (shared overlays)
      ========================================================== -->
-<div class="palette-backdrop" id="paletteBackdrop">
+<div class="palette-backdrop" id="paletteBackdrop" aria-hidden="true">
 	<div class="palette" role="dialog" aria-modal="true" aria-label="Command palette">
 		<div class="palette-input-row">
 			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
@@ -998,7 +1022,7 @@
 <section class="section" id="skills" aria-label="Skills">
 	<div class="wrap">
 		<p class="eyebrow reveal">07 · Skills</p>
-		<h2 class="section-title reveal" style="--reveal-delay: 60ms">Tools are listed only if<br>they appear in shipped work.</h2>
+		<h2 class="section-title reveal" style="--reveal-delay: 60ms" data-vapour-title>Tools are listed only if<br>they appear in shipped work.</h2>
 
 		<div class="skill-lane reveal" style="--reveal-delay: 0ms; margin-top: var(--space-7)">
 			<div class="skill-lane-head">
@@ -1071,7 +1095,7 @@
 <section class="section section-alt" id="achievements" aria-label="Achievements and certifications">
 	<div class="wrap">
 		<p class="eyebrow reveal">08 · Recognition</p>
-		<h2 class="section-title reveal" style="--reveal-delay: 60ms">Competitive record<br>and formal credentials.</h2>
+		<h2 class="section-title reveal" style="--reveal-delay: 60ms" data-vapour-title>Competitive record<br>and formal credentials.</h2>
 
 		<div class="grid-2" style="margin-top: var(--space-7); align-items: start">
 			<div>
@@ -1156,7 +1180,7 @@
 <section class="section" id="contact" aria-label="Contact">
 	<div class="wrap">
 		<p class="eyebrow reveal">09 · Contact</p>
-		<h2 class="contact-title reveal" style="--reveal-delay: 60ms">If you need automation that can survive an audit — <em class="accent-word">talk to me.</em></h2>
+		<h2 class="contact-title reveal" style="--reveal-delay: 60ms" data-vapour-title>If you need automation that can survive an audit — <em class="accent-word">talk to me.</em></h2>
 		<ul class="contact-channels reveal" style="--reveal-delay: 140ms">
 			<li>
 				<a class="contact-channel" href="mailto:rossdmello896@gmail.com" data-cursor>
@@ -1171,8 +1195,14 @@
 				</a>
 			</li>
 			<li>
-				<a class="contact-channel" href="https://www.linkedin.com/in/ross-dmello-4a9035330" target="_blank" rel="noopener noreferrer" data-cursor>
-					<span>linkedin.com/in/ross-dmello</span>
+				<a class="contact-channel" href="tel:+917045197220" data-cursor>
+					<span>+91-7045197220</span>
+					<span class="channel-kind">phone</span>
+				</a>
+			</li>
+			<li>
+				<a class="contact-channel" href="https://www.linkedin.com/in/ross-dmello-4a9035330/" target="_blank" rel="noopener noreferrer" data-cursor>
+					<span>linkedin.com/in/ross-dmello-4a9035330</span>
 					<span class="channel-kind">linkedin</span>
 				</a>
 			</li>
@@ -1215,6 +1245,7 @@
 			"familyName": "Dmello",
 			"jobTitle": "AI Engineer / GenAI Developer (B.E. Computer Engineering, 2026)",
 			"email": "mailto:rossdmello896@gmail.com",
+			"telephone": "+91-7045197220",
 			"address": {
 				"@type": "PostalAddress",
 				"addressLocality": "Mumbai",
@@ -1227,7 +1258,7 @@
 			},
 			"sameAs": [
 				"https://github.com/RossDmello2",
-				"https://www.linkedin.com/in/ross-dmello-4a9035330"
+				"https://www.linkedin.com/in/ross-dmello-4a9035330/"
 			],
 			"knowsAbout": [
 				"Retrieval-Augmented Generation",
@@ -1345,10 +1376,11 @@
 }
 </script>
 
-<script src="js/main.js"></script>
+<script src="js/main.js?v=9"></script>
+	<script src="js/vapour.js?v=18"></script>
 <script src="js/engines.js"></script>
 <script src="js/brand.js"></script>
-<script src="js/flow.js"></script>
+<script src="js/flow.js?v=3"></script>
 
 </body>
 </html>
