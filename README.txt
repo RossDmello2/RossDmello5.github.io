@@ -5,7 +5,7 @@ Structure
 ---------
 index.html        page structure + schema.org JSON-LD (machine-readable resume data)
 css/styles.css    complete design system: tokens, light/dark themes, all animation
-js/main.js        theme engine, scroll effects, reveals, counters, cursor, tilt,
+js/main.js        theme engine, scroll effects, reveals, counters, tilt,
                   command palette (Cmd/Ctrl+K or /), FAQ, toasts, konami easter egg
 js/engines.js     three canvas engines: hero gradient mesh, pipeline packet
                   simulation, terminal log replay
@@ -39,11 +39,11 @@ FILES
   css/styles.css      v1 foundation: layout, motion, responsive rules
   css/theme.css       token sheet override — obsidian blueprint palette,
                       Fraunces / Space Grotesk / JetBrains Mono, grid
-                      canvas, component re-skins (nav, buttons, cursor
+                      canvas, component re-skins (nav, buttons,
                       reticle, marquee, corner registration marks)
   css/blueprint.css   new components: brand sigil, hero HUD, portrait
                       module, flow packets, reserved project slot
-  js/main.js          v1 engines: theme, reveals, cursor, tilt, palette
+  js/main.js          v1 engines: theme, reveals, tilt, palette
   js/engines.js       hero mesh · pipeline packet sim · terminal replay
   js/brand.js         animated favicon (orbiting dashed ring, sleeps
                       when tab hidden, static under reduced motion)
@@ -87,11 +87,10 @@ V3 BEHAVIOR
   - Native scrolling and all original section anchors are preserved.
   - One packet motion sequence is the primary scroll spectacle. Important hero,
     chapter, HPCL, project, skills, achievement, and contact titles share one
-    queued Vapour Text language. Exactly one rendered title line dissolves and
-    reforms at a time, without an underlying skeleton or terminal-letter
-    handoff. Visible diagram wires flow continuously, and fine-pointer diagram
-    cards track the cursor with direct 3D tilt. All systems pause or flatten
-    when appropriate.
+    Header text renders statically in its authored DOM shape with no Vapour or
+    character-rise motion. The native browser pointer is preserved. Visible
+    diagram wires flow continuously, and fine-pointer diagram cards track the
+    cursor with direct 3D tilt. All systems pause or flatten when appropriate.
   - Coarse pointers and narrow screens use a static or lightly animated
     composition. Reduced motion removes the animated grain, hero canvas,
     packet travel, and smooth scrolling while keeping the full narrative.

@@ -514,7 +514,7 @@ The implementation follows the direction above without using generated imagery i
 | --- | --- |
 | One dominant concept | The hero claim packet and philosophy evidence thread use the same validate, retrieve, execute, persist, observe sequence. |
 | Flagship hierarchy | HPCL is full width and immersive. VoiceRAG and VisoRAG form a paired chapter. n8n is a wide workflow chapter. local-doc-rag and Verbatim form the compact local-first pair. |
-| Quiet supporting motion | After direct interaction review, diagram wires flow continuously while visible, fine-pointer diagram cards use direct cursor-following tilt, and important titles share one globally queued Vapour Text system. Exactly one rendered title line completes its dissolve and re-formation at a time. Each effect has one owner and pauses or flattens offscreen, on touch, and under reduced motion. Ticker motion, marquee motion, portrait scanning, and rotating sigil remain disabled. |
+| Quiet supporting motion | After direct interaction review, diagram wires flow continuously while visible and fine-pointer diagram cards use direct cursor-following tilt. Headers stay static in their authored DOM shape, and the native browser pointer remains visible. Each remaining effect has one owner and pauses or flattens offscreen, on touch, and under reduced motion. Ticker motion, marquee motion, portrait scanning, rotating sigil, Vapour titles, and custom cursor motion remain disabled. |
 | Native responsive behavior | Native scrolling and anchors remain. The sticky evidence story becomes a static document flow below 900 px and under reduced motion. |
 | Honest image strategy | No generated production asset was justified. The real portrait, CSS material, canvas packet, and architecture SVGs carry the identity. |
 | Keyboard repair | The mobile overlay synchronizes class, aria-hidden, and inert state. It focuses the first link and returns focus to the menu button. The command palette traps focus and restores it to a stable trigger. |
@@ -534,7 +534,7 @@ The implementation follows the direction above without using generated imagery i
 
 - Mobile menu opens visibly, sets `aria-hidden="false"`, removes inert, focuses About, closes with Escape, restores focus to the menu button, and reverses the state.
 - The command palette opens as a modal dialog with the input focused. Shift+Tab wraps to the last command, Tab from the last command wraps to the input, Escape closes it, and focus returns to the theme control.
-- All existing hash links resolve to present targets. The original external URL set is preserved, with the requested phone link added; `css/v3.css` and `js/vapour.js` are the new implementation layers.
+- All existing hash links resolve to present targets. The original external URL set is preserved, with the requested phone link added; `css/v3.css` remains the active implementation layer and `js/vapour.js` is retained only as an isolated traceable artifact.
 - All six GitHub repository URLs returned HTTP 200. The LinkedIn target remains correct but rejects automated HTTP verification with status 999.
 - Dark and light themes both render without overflow and persist through the existing control.
 - Reduced motion removes hero canvas rendering, grain, packet travel, and smooth scrolling. All five evidence steps remain active, the pipeline legend remains explicit, and the terminal exposes its complete static log.
@@ -547,12 +547,9 @@ The implementation follows the direction above without using generated imagery i
 
 ### User-directed interaction revision
 
-- Vapour Text is a shared title language across the hero, Builder chapter, HPCL experience, philosophy, project chapter, all six project titles, skills, achievements, and contact. It uses compact vanilla-canvas overlays without changing the underlying heading text or adding a dependency.
-- A global queue permits exactly one visible title line to animate at a time. Every word, dash, accent, and punctuation mark on that rendered line is sampled into one color-faithful canvas surface, so there is no word boundary or terminal-character handoff.
-- The active DOM line becomes fully transparent while the matching particle raster dissolves and reforms. There is no skeleton, outline, or shadow copy under the particles. When re-formation completes, the full DOM line returns in the same frame and the canvas is cleared.
-- Every particle uses an absolute wall-clock release age and bounded lifetime, so a dropped frame cannot strand half of a final glyph. Each canvas also carries 28 to 58 px of transparent safety padding on every side, with global canvas width caps explicitly removed so the buffer cannot be silently clipped.
-- The evaporation uses a longer high-density particle pass and a slower re-formation curve. Rendering reuses color and opacity buckets, preserving the richer field while maintaining a measured 17.1 ms p95 animation-frame interval on the largest hero line in the in-app Browser audit.
-- The Vapour Text queue runs only for visible titles on a fine pointer. It pauses in a background tab and becomes ordinary static text on narrow screens, coarse pointers, reduced motion, or canvas failure.
+- Header text is now static across the hero, Builder chapter, HPCL experience, philosophy, project chapter, all six project titles, skills, achievements, and contact. The authored DOM text is present immediately with no Vapour canvas, particle dissolve, or character-rise handoff.
+- The native browser pointer is preserved across the page. The former orange cursor dot and halo elements are removed, and no custom cursor state is initialized.
+- The unused Vapour implementation remains isolated in `js/vapour.js` for traceability but is no longer loaded by the page.
 - Orange dotted diagram routes animate continuously while their diagram is intersecting the viewport. Offscreen and background-tab diagrams stop work, and reduced motion shows the complete static route.
 - Diagram cards now track the fine pointer directly across both axes and reset cleanly outside the card. The transform is compositor-only and avoids a second easing loop that would make the response feel delayed.
 - The Talk to me section now exposes Ross's email, GitHub, phone number, and exact LinkedIn profile as direct links.
