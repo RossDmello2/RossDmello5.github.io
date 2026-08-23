@@ -312,49 +312,16 @@
 	}
 
 	/* ----------------------------------------------------------
-	   6 · HERO TITLE CHAR-SPLIT
-	   Splits [data-split] lines into per-character spans with a
-	   stagger. aria-label preserves the readable sentence;
-	   split spans are aria-hidden so screen readers hear words,
-	   not letters.
+	   6 · HERO TITLE
+	   Header text stays in its authored DOM shape. Motion is intentionally
+	   disabled so the complete title is present immediately.
 	   ---------------------------------------------------------- */
 	function initHeroTitle() {
 		var title = document.getElementById('heroTitle');
 		if (!title) { return; }
 		title.setAttribute('aria-label', title.textContent.replace(/\s+/g, ' ').trim());
-
-		if (reduceMotion.matches) { return; } /* keep plain text: no split, no animation */
-
-		var delay = 0;
-		title.querySelectorAll('[data-split]').forEach(function (line) {
-			var frag = document.createDocumentFragment();
-			Array.prototype.forEach.call(line.childNodes, function (node) {
-				var isEm = node.nodeType === 1;
-				var text = node.textContent;
-				var host = frag;
-				if (isEm) {
-					var em = document.createElement('em');
-					em.className = node.className;
-					frag.appendChild(em);
-					host = em;
-				}
-				Array.prototype.forEach.call(text, function (ch) {
-					if (ch === ' ') {
-						host.appendChild(document.createTextNode(' '));
-						return;
-					}
-					var span = document.createElement('span');
-					span.className = 'char';
-					span.setAttribute('aria-hidden', 'true');
-					span.style.animationDelay = delay + 'ms';
-					span.textContent = ch;
-					host.appendChild(span);
-					delay += 26; /* per-char stagger */
-				});
-			});
-			line.textContent = '';
-			line.appendChild(frag);
-		});
+		/* Header motion is intentionally disabled. Keep the authored text in its
+		   original DOM shape so it renders immediately and remains selectable. */
 	}
 
 	/* ----------------------------------------------------------
@@ -384,46 +351,7 @@
 	}
 
 	/* ----------------------------------------------------------
-	   8 · CUSTOM CURSOR (pointer:fine only)
-	   Dot follows instantly; halo eases behind with a lerp loop
-	   that sleeps when the pointer is idle.
-	   ---------------------------------------------------------- */
-	function initCursor() {
-		if (!finePointer.matches || reduceMotion.matches) { return; }
-		var dot = document.getElementById('cursorDot');
-		var halo = document.getElementById('cursorHalo');
-		if (!dot || !halo) { return; }
-		document.body.classList.add('has-cursor');
-
-		var tx = -100, ty = -100; /* target (offscreen until first move) */
-		var hx = -100, hy = -100; /* halo eased position */
-		var raf = null;
-
-		function loop() {
-			hx += (tx - hx) * 0.16;
-			hy += (ty - hy) * 0.16;
-			halo.style.transform = 'translate(' + (hx - 18) + 'px,' + (hy - 18) + 'px)';
-			if (Math.abs(tx - hx) + Math.abs(ty - hy) > 0.3) {
-				raf = requestAnimationFrame(loop);
-			} else {
-				raf = null; /* sleep until next pointermove */
-			}
-		}
-
-		document.addEventListener('pointermove', function (e) {
-			tx = e.clientX; ty = e.clientY;
-			dot.style.transform = 'translate(' + (tx - 3) + 'px,' + (ty - 3) + 'px)';
-			if (raf === null) { raf = requestAnimationFrame(loop); }
-		}, { passive: true });
-
-		/* grow halo over interactive targets */
-		document.addEventListener('pointerover', function (e) {
-			document.body.classList.toggle('cursor-hover', !!e.target.closest('a, button, [data-cursor]'));
-		});
-	}
-
-	/* ----------------------------------------------------------
-	   9 · MAGNETIC BUTTONS + 3D TILT CARDS (pointer:fine only)
+	   8 · MAGNETIC BUTTONS + 3D TILT CARDS (pointer:fine only)
 	   Transform math done per-frame from the latest pointer
 	   event; both reset cleanly on pointerleave.
 	   ---------------------------------------------------------- */
@@ -517,7 +445,6 @@
 	initNavAndProgress();
 	initMobileMenu();
 	initReveals();
-	initCursor();
 	initTilt();
 	initActiveNav();
 	initCounters();
